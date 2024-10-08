@@ -241,10 +241,7 @@ struct C10_API InefficientStdFunctionContext {
   // NOLINTNEXTLINE(performance-noexcept-move-constructor)
   InefficientStdFunctionContext& operator=(
       InefficientStdFunctionContext&& rhs) {
-    this->~InefficientStdFunctionContext();
-    ptr_ = rhs.ptr_;
-    rhs.ptr_ = nullptr;
-    deleter_ = std::move(rhs.deleter_);
+    std::exchange(*this, std::move(rhs));
     return *this;
   }
   ~InefficientStdFunctionContext() {
