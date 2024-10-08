@@ -25,8 +25,8 @@ if(BUILD_TEST)
 endif()
 
 if(USE_CUDA)
-  caffe2_binary_target("inspect_gpu.cc")
-  target_link_libraries(inspect_gpu ${CUDA_LIBRARIES})
+  #caffe2_binary_target("inspect_gpu.cc")
+  #target_link_libraries(inspect_gpu ${CUDA_LIBRARIES})
 
 endif()
 
